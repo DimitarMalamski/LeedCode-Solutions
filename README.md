@@ -30,6 +30,7 @@ Each solution file includes:
 ---
 ## Progress Tracker
 
+```markdown
 | Category            | Problems Solved |
 | ------------------- | --------------- |
 | Arrays              | 0               |
@@ -38,6 +39,7 @@ Each solution file includes:
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
 | **Total**           | 0               |
+```
 
 *This will be updated as I progress with the problems*
 
