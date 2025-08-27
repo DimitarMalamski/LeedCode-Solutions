@@ -33,12 +33,12 @@ Each solution file includes:
 ```markdown
 | Category            | Problems Solved |
 | ------------------- | --------------- |
-| Arrays              | 0               |
+| Arrays              | 1               |
 | Strings             | 0               |
 | Linked Lists        | 0               |
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
-| **Total**           | 0               |
+| **Total**           | 1               |
 ```
 
 *This will be updated as I progress with the problems*
