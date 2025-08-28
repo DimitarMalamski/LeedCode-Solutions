@@ -6,10 +6,10 @@ class Solution
    static void Main(string[] args)
    {
       string s = "jer", t = "jam";
-      bool answer = Check(s, t);
+      bool answer = SolutionTwo(s, t);
       Console.WriteLine(answer);
    }
-   static bool Check(string s, string t)
+   static bool SolutionOne(string s, string t)
    {
       Dictionary<char, int> sSet = new Dictionary<char, int>();
       Dictionary<char, int> tSet = new Dictionary<char, int>();
@@ -39,5 +39,28 @@ class Solution
       }
 
       return sSet.OrderBy(kv => kv.Key).SequenceEqual(tSet.OrderBy(kv => kv.Key));
+   }
+
+   static bool SolutionTwo(string s, string t)
+   {
+      if (s.Length != t.Length) return false;
+
+      int[] count = new int[26];
+
+      for (int i = 0; i < s.Length; i++)
+      {
+         count[s[i] - 'a']++;
+         count[t[i] - 'a']--;
+      }
+
+      foreach (int val in count)
+      {
+         if (val != 0)
+         {
+            return false;
+         }
+      }
+
+      return true;
    }
 }
