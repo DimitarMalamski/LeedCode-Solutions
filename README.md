@@ -38,7 +38,8 @@ Each solution file includes:
 | Linked Lists        | 0               |
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
-| **Total**           | 3               |
+| Two Pointers        | 1               |
+| **Total**           | 4               |
 ```
 
 *This will be updated as I progress with the problems*
