@@ -9,7 +9,7 @@ class Solution
    static void Main(string[] args)
    {
       string input = "Was it a car or a cat I saw?";
-      bool output = Check(input);
+      bool output = CheckRefactored(input);
       Console.WriteLine(output);
    }
    static bool Check(string input)
@@ -22,6 +22,27 @@ class Solution
          if (filtered[i] != filtered[(filtered.Length - 1) - i]) {
             return false;
          }
+      }
+
+      return true;
+   }
+
+   static bool CheckRefactored(string input)
+   {
+      string filtered = new string(input.Where(char.IsLetterOrDigit)
+                                       .Select(char.ToLowerInvariant)
+                                       .ToArray());
+
+      int start = 0, end = filtered.Length - 1;
+
+      while (start < end)
+      {
+         if (filtered[start] != filtered[end])
+         {
+            return false;
+         }
+         start++;
+         end--;
       }
 
       return true;
