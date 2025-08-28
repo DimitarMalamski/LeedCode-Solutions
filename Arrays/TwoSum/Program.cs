@@ -6,7 +6,7 @@ class Program {
    static void Main (string[] args) {
       int[] nums = { 3,3 };
       int target = 6;
-      var result = TwoSum(nums, target);
+      var result = TwoSumImproved(nums, target);
       Console.WriteLine($"[{result[0]}, {result[1]}]");
    }
    static int[] TwoSum(int[] nums, int target) {
@@ -19,5 +19,23 @@ class Program {
       }
 
       return null;
+   }
+
+   static int[] TwoSumImproved(int[] nums, int targer) {
+      Dictionary<int,int> map = new Dictionary<int, int>();
+
+      for (int i = 0; i < nums.Length; i++ ) {
+         int leftover = targer - nums[i];
+
+         if (map.ContainsKey(leftover)) {
+            return new int[] { map[leftover], i };
+         }
+         
+         if (!map.ContainsKey(nums[i])) {
+            map.Add(nums[i], i);
+         }
+      }
+
+      return null; 
    }
 }
