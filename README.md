@@ -39,7 +39,8 @@ Each solution file includes:
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
 | Two Pointers        | 1               |
-| **Total**           | 4               |
+| Stack               | 1               |
+| **Total**           | 5               |
 ```
 
 *This will be updated as I progress with the problems*
