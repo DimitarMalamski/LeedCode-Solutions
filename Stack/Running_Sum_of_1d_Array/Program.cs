@@ -7,7 +7,7 @@ class Solution
    static void Main(string[] args)
    {
       int[] nums = [1, 2, 3, 4];
-      int[] output = Check(nums);
+      int[] output = CheckOptimized(nums);
       Console.WriteLine(string.Join(", ", output));
    }
    static int[] Check(int[] nums)
@@ -23,5 +23,15 @@ class Solution
       }
 
       return result;
+   }
+
+   static int[] CheckOptimized(int[] nums)
+   {
+      for (int i = 1; i < nums.Length; i++)
+      {
+         nums[i] += nums[i - 1];
+      }
+
+      return nums;
    }
 }
