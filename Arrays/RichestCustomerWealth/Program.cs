@@ -1,13 +1,17 @@
-﻿class Solution
+﻿// Problem 1672. Richest Customer Wealth
+// Link https://leetcode.com/problems/richest-customer-wealth/description/
+// Difficulty: Easy
+
+class Solution
 {
    static void Main(string[] args)
    {
-      int[,] accounts = new int[,] { { 2, 8, 7 },{ 7, 1, 3 },{ 1, 9, 5 } };
-      int output = Check(accounts);
+      int[,] accounts = new int[,] { { 2, 8, 7 }, { 7, 1, 3 }, { 1, 9, 5 } };
+      int output = SolutionTwo(accounts);
       Console.WriteLine(output);
    }
 
-   static int Check(int[,] accounts)
+   static int SolutionOne(int[,] accounts)
    {
       int[] sums = new int[accounts.GetLength(0)];
 
@@ -34,5 +38,27 @@
       }
 
       return max;
+   }
+
+   static int SolutionTwo(int[,] accounts)
+   {
+      int maxWealth = 0;
+
+      for (int row = 0; row < accounts.GetLength(0); row++)
+      {
+         int currentWealth = 0;
+
+         for (int col = 0; col < accounts.GetLength(1); col++)
+         {
+            currentWealth += accounts[row, col];
+         }
+
+         if (currentWealth > maxWealth)
+         {
+            maxWealth = currentWealth;
+         }
+      }
+
+      return maxWealth;
    }
 }
