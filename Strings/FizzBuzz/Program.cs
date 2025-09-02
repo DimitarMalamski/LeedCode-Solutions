@@ -6,10 +6,10 @@ class Solution
    static void Main(string[] args)
    {
       int input = 15;
-      string[] output = Check(input);
+      string[] output = SolutionOne(input);
       Console.WriteLine(string.Join(",", output));
    }
-   static string[] Check(int input)
+   static string[] SolutionOne(int input)
    {
       string[] output = new string[input];
 
@@ -36,6 +36,35 @@ class Solution
          {
             output[i] = (i + 1).ToString();
          }
+      }
+
+      return output;
+   }
+
+   static string[] SolutionTwo(int input)
+   {
+      string[] output = new string[input];
+
+      for (int i = 0; i < input; i++)
+      {
+         string current = "";
+
+         if ((i + 1) % 3 == 0)
+         {
+            current += "Fizz";
+         }
+
+         if ((i + 1) % 5 == 0)
+         {
+            current += "Buzz";
+         }
+
+         if (current == "")
+         {
+            current = (i + 1).ToString();
+         }
+
+         output[i] = current;
       }
 
       return output;
