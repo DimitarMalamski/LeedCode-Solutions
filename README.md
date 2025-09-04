@@ -40,7 +40,8 @@ Each solution file includes:
 | Dynamic Programming | 0               |
 | Two Pointers        | 1               |
 | Stack               | 1               |
-| **Total**           | 7               |
+| Math                | 1               |
+| **Total**           | 8               |
 ```
 
 *This will be updated as I progress with the problems*
