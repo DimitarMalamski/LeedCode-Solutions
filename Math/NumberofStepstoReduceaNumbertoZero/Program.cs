@@ -7,10 +7,10 @@ class Solution
    static void Main(string[] args)
    {
       int input = 123;
-      int output = Check(input);
+      int output = SolutionTwo(input);
       Console.WriteLine(output);
    }
-   static int Check(int input)
+   static int SolutionOne(int input)
    {
       int count = 0;
 
@@ -19,13 +19,34 @@ class Solution
          if (input % 2 == 0)
          {
             input /= 2;
-            count++;
          }
          else
          {
             input -= 1;
-            count++;
          }
+
+         count++;
+      }
+
+      return count;
+   }
+
+   static int SolutionTwo(int input)
+   {
+      int count = 0;
+
+      while (input > 0)
+      {
+         if ((input & 1) == 0)
+         {
+            input >>= 1;
+         }
+         else
+         {
+            input--;
+         }
+
+         count++;
       }
 
       return count;
