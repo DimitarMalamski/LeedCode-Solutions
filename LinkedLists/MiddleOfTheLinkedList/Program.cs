@@ -6,11 +6,11 @@ class Solution
 {
    static void Main(string[] args)
    {
-      int[] input = { 1, 2, 3, 4, 5 };
+      int[] input = { 1, 2, 3, 4, 5, 6 };
 
       ListNode head = BuildLinkedList(input);
 
-      ListNode middle = MiddleNode(head);
+      ListNode middle = MiddleNodeSolutionOne(head);
 
       PrintList(middle);
    }
@@ -24,7 +24,7 @@ class Solution
          this.next = next;
       }
    }
-   static ListNode MiddleNode(ListNode head)
+   static ListNode MiddleNodeSolutionOne(ListNode head)
    {
       List<ListNode> list = new List<ListNode>();
 
@@ -39,6 +39,21 @@ class Solution
 
       return list[length / 2];
    }
+
+   static ListNode MiddleNodeSolutionTwo(ListNode head)
+   {
+      ListNode slow = head;
+      ListNode fast = head;
+
+      while (fast != null && fast.next != null)
+      {
+         slow = slow.next;
+         fast = fast.next.next;
+      }
+
+      return slow;
+   }
+
 
    static ListNode BuildLinkedList(int[] nums)
    {
