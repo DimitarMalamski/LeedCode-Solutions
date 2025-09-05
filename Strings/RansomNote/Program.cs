@@ -7,10 +7,10 @@ class Solution
    static void Main(string[] args)
    {
       string ransomNote = "aa", magazine = "ab";
-      bool output = Check(ransomNote, magazine);
+      bool output = SolutionTwo(ransomNote, magazine);
       Console.WriteLine(output);
    }
-   static bool Check(string ransomNote, string magazine)
+   static bool SolutionOne(string ransomNote, string magazine)
    {
       Dictionary<char, int> hash = new Dictionary<char, int>();
 
@@ -36,7 +36,8 @@ class Solution
          {
             hash[letter] -= 1;
          }
-         else {
+         else
+         {
             continue;
          }
       }
@@ -47,6 +48,22 @@ class Solution
          {
             return false;
          }
+      }
+
+      return true;
+   }
+
+   static bool SolutionTwo(string ransomNote, string magazine)
+   {
+      for (int i = 0; i < ransomNote.Length; i++)
+      {
+         char letter = ransomNote[i];
+
+         int matchingIndex = magazine.IndexOf(letter);
+
+         if (matchingIndex == -1) return false;
+
+         magazine = magazine.Substring(0, matchingIndex) + magazine.Substring(matchingIndex + 1);
       }
 
       return true;
