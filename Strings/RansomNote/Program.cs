@@ -7,7 +7,7 @@ class Solution
    static void Main(string[] args)
    {
       string ransomNote = "aa", magazine = "ab";
-      bool output = SolutionOne(ransomNote, magazine);
+      bool output = SolutionThree(ransomNote, magazine);
       Console.WriteLine(output);
    }
    static bool SolutionOne(string ransomNote, string magazine)
@@ -48,6 +48,23 @@ class Solution
          if (matchingIndex == -1) return false;
 
          magazine = magazine.Substring(0, matchingIndex) + magazine.Substring(matchingIndex + 1);
+      }
+
+      return true;
+   }
+
+   static bool SolutionThree(string ransomNote, string magazine)
+   {
+      int[] set = new int[26];
+
+      foreach (char letter in magazine)
+      {
+         set[letter - 'a']++;
+      }
+
+      foreach (char letter in ransomNote)
+      {
+         if (--set[letter - 'a'] < 0) return false;
       }
 
       return true;
