@@ -41,7 +41,7 @@ Each solution file includes:
 | Two Pointers        | 1               |
 | Stack               | 1               |
 | Math                | 1               |
-| **Total**           | 10               |
+| **Total**           | 10              |
 ```
 
 *This will be updated as I progress with the problems*
