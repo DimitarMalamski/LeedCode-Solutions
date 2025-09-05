@@ -7,47 +7,31 @@ class Solution
    static void Main(string[] args)
    {
       string ransomNote = "aa", magazine = "ab";
-      bool output = SolutionTwo(ransomNote, magazine);
+      bool output = SolutionOne(ransomNote, magazine);
       Console.WriteLine(output);
    }
    static bool SolutionOne(string ransomNote, string magazine)
    {
       Dictionary<char, int> hash = new Dictionary<char, int>();
 
-      for (int i = 0; i < ransomNote.Length; i++)
+      foreach (char letter in magazine)
       {
-         char letter = ransomNote[i];
-
          if (!hash.ContainsKey(letter))
          {
-            hash.Add(letter, 1);
+            hash[letter] = 0;
          }
-         else
-         {
-            hash[letter] += 1;
-         }
+
+         hash[letter]++;
       }
 
-      for (int i = 0; i < magazine.Length; i++)
+      foreach (char letter in ransomNote)
       {
-         char letter = magazine[i];
-
-         if (hash.ContainsKey(letter) && hash[letter] >= 1)
-         {
-            hash[letter] -= 1;
-         }
-         else
-         {
-            continue;
-         }
-      }
-
-      foreach (var item in hash)
-      {
-         if (item.Value != 0)
+         if (!hash.ContainsKey(letter) || hash[letter] == 0)
          {
             return false;
          }
+
+         hash[letter]--;
       }
 
       return true;
