@@ -24,7 +24,6 @@ leetcode-solutions/
 
 Each solution file includes:
   - Problem name + LeetCode link;
-  - Explanation of the approach;
   - Clean, working code;
 
 ---
