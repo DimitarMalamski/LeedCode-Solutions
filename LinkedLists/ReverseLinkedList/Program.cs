@@ -10,11 +10,25 @@ class Solution
 
       ListNode head = BuildLinkedList(input);
 
-      ListNode reversed = ReverseLinkedList(head);
+      ListNode reversed = RecursiveReverseLinkedList(head);
 
       PrintList(reversed);
    }
 
+   static ListNode RecursiveReverseLinkedList(ListNode head)
+   {
+      if (head == null || head.next == null)
+      {
+         return head;
+      }
+
+      ListNode newHead = RecursiveReverseLinkedList(head.next);
+
+      head.next.next = head;
+      head.next = null;
+
+      return newHead;
+   }
    static ListNode ReverseLinkedList(ListNode head)
    {
       ListNode prev = null;
