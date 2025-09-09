@@ -12,7 +12,7 @@ class Solution
       ListNode headOne = BuildLinkedList(listOne);
       ListNode headTwo = BuildLinkedList(listTwo);
 
-      ListNode mergedList = RecursiveMergeTwoLists(headOne, headTwo);
+      ListNode mergedList = MergeTwoLists(headOne, headTwo);
 
       PrintList(mergedList);
    }
@@ -26,7 +26,7 @@ class Solution
          this.next = next;
       }
    }
-   
+
    static ListNode BuildLinkedList(int[] nums)
    {
       if (nums.Length == 0) return null;
@@ -75,6 +75,38 @@ class Solution
          list2.next = RecursiveMergeTwoLists(list1, list2.next);
          return list2;
       }
-      
+   }
+
+   static ListNode MergeTwoLists(ListNode list1, ListNode list2)
+   {
+      ListNode dummy = new ListNode(0);
+      ListNode node = dummy;
+
+      while (list1 != null && list2 != null)
+      {
+         if (list1.val < list2.val)
+         {
+            node.next = list1;
+            list1 = list1.next;
+         }
+         else
+         {
+            node.next = list2;
+            list2 = list2.next;
+         }
+
+         node = node.next;
+      }
+
+      if (list1 != null)
+      {
+         node.next = list1;
+      }
+      else
+      {
+         node.next = list2;
+      }
+
+      return dummy.next;
    }
 }
