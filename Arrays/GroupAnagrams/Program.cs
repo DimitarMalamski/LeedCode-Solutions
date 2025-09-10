@@ -32,4 +32,30 @@ class Solution
 
       return map.Values.ToList();
    }
+
+   static List<List<string>> GroupAnagramsOptimized(string[] input)
+   {
+      var map = new Dictionary<string, List<string>>();
+
+      foreach (string word in input)
+      {
+         int[] chars = new int[26];
+
+         foreach (char c in word)
+         {
+            chars[c - 'a']++;
+         }
+
+         string key = String.Join(',', chars);
+
+         if (!map.ContainsKey(key))
+         {
+            map[key] = new List<string>();
+         }
+
+         map[key].Add(word);
+      }
+
+      return map.Values.ToList();
+   }
 }
