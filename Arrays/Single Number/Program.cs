@@ -5,8 +5,8 @@ class Solution
 {
    static void Main(string[] args)
    {
-      int[] input = { 4,1 ,2,1,2 };
-      int output = SingleNumber(input);
+      int[] input = { 4, 1, 2, 1, 2 };
+      int output = SingleNumberXOR(input);
       Console.WriteLine(output);
    }
    static int SingleNumber(int[] input)
@@ -24,5 +24,17 @@ class Solution
       }
 
       return map.FirstOrDefault(x => x.Value == 1).Key;
+   }
+
+   static int SingleNumberXOR(int[] input)
+   {
+      int result = 0;
+
+      foreach (int num in input)
+      {
+         result ^= num;
+      }
+
+      return result;
    }
 }
