@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       string[] input = { "flower", "flow", "flight" };
-      string output = SolutionOne(input);
+      string output = SolutionTwo(input);
       Console.WriteLine(output);
    }
    static string SolutionOne(string[] input)
@@ -29,5 +29,38 @@ class Solution
       }
 
       return prexif;
+   }
+
+   static string SolutionTwo(string[] input)
+   {
+      if (input == null || input.Length == 0)
+      {
+         return string.Empty;
+      }
+
+      int min = 0;
+
+      for (int i = 1; i < input.Length; i++)
+      {
+         if (input[i].Length < input[min].Length)
+         {
+            min = i;
+         }
+      }
+
+      string shortest = input[min];
+
+      for (int i = 0; i < shortest.Length; i++)
+      {
+         for (int j = 0; j < input.Length; j++)
+         {
+            if (input[j][i] != shortest[i])
+            {
+               return shortest.Substring(0, i);
+            }
+         }
+      }
+
+      return shortest;
    }
 }
