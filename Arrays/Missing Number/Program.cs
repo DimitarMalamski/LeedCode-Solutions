@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       int[] input = { 0, 1 };
-      int output = MissingNumberOptimized(input);
+      int output = MissingNumberXOR(input);
       Console.WriteLine(output);
    }
    static int MissingNumber(int[] nums)
@@ -39,5 +39,18 @@ class Solution
       }
 
       return expectedSum - actualSum;
+   }
+
+   static int MissingNumberXOR(int[] nums)
+   {
+      int n = nums.Length;
+      int result = n;
+
+      for (int i = 0; i < n; i++)
+      {
+         result ^= i ^ nums[i];
+      }
+
+      return result;
    }
 }
