@@ -8,7 +8,7 @@ class Solution
    {
       string word1 = "ab";
       string word2 = "pqrs";
-      string output = MergeAlternatelySolutionTwo(word1, word2);
+      string output = MergeAlternatelySolutionThree(word1, word2);
 
       Console.WriteLine(output);
    }
@@ -87,5 +87,20 @@ class Solution
       }
 
       return result;
+   }
+
+   static string MergeAlternatelySolutionThree(string word1, string word2)
+   {
+      int l1 = word1.Length, l2 = word2.Length, k = 0;
+      char[] buf = new char[l1 + l2];
+
+      int i = 0, j = 0;
+      while (i < l1 || j < l2)
+      {
+         if (i < l1) buf[k++] = word1[i++];
+         if (j < l2) buf[k++] = word2[j++];
+      }
+
+      return new string(buf);
    }
 }
