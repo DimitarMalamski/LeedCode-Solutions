@@ -8,7 +8,7 @@ class Solution
    {
       string word1 = "ab";
       string word2 = "pqrs";
-      string output = MergeAlternately(word1, word2);
+      string output = MergeAlternatelySolutionTwo(word1, word2);
 
       Console.WriteLine(output);
    }
@@ -64,5 +64,28 @@ class Solution
       }
 
       return output;
+   }
+   static string MergeAlternatelySolutionTwo(string word1, string word2)
+   {
+      int p1 = 0;
+      int p2 = 0;
+      string result = "";
+
+      while (p1 < word1.Length || p2 < word2.Length)
+      {
+         if (p1 < word1.Length)
+         {
+            result += word1[p1];
+            p1++;
+         }
+
+         if (p2 < word2.Length)
+         {
+            result += word2[p2];
+            p2++;
+         }
+      }
+
+      return result;
    }
 }
