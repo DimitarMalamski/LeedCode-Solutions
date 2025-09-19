@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       string s = "the sky is blue";
-      string output = ReverseWords(s);
+      string output = ReverseWordsOptimized(s);
       Console.WriteLine(output);
    }
    static string ReverseWords(string s)
@@ -16,7 +16,30 @@ class Solution
       Array.Reverse(parts);
 
       return string.Join(' ', parts);
-   } 
+   }
+   static string ReverseWordsOptimized(string s)
+   {
+      List<string> result = new List<string>();
+
+      int i = 0, n = s.Length;
+
+      while (i < n)
+      {
+         while (i < n && s[i] == ' ') i++;
+
+         if (i >= n) break;
+
+         int start = i;
+
+         while (i < n && s[i] != ' ') i++;
+
+         result.Add(s.Substring(start, i - start));
+      }
+
+      result.Reverse();
+
+      return string.Join(' ', result);
+   }
 }
 
 
