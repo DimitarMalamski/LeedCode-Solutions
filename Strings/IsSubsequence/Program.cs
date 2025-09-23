@@ -32,4 +32,24 @@ class Solution
 
       if (first == s.Length) return true; else return false;
    }
+
+   static bool IsSubsequenceOptimized(string s, string t)
+   {
+      int first = 0;
+      int second = 0;
+
+      while (first < s.Length && second < t.Length)
+      {
+         if (s.Length - first > t.Length - second) return false;
+         
+         if (s[first] == t[second])
+         {
+            first++;
+         }
+
+         second++;
+      }
+
+      if (first == s.Length) return true; else return false;
+   }
 }
