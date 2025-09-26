@@ -5,7 +5,7 @@ class Solution
 {
    static void Main(string[] args)
    {
-      int[] nums = { 2,1,-1 };
+      int[] nums = { 2, 1, -1 };
       int output = PivotIndex(nums);
       Console.WriteLine(output);
    }
@@ -31,6 +31,25 @@ class Solution
          if (leftSum == rightSum) return index;
 
          index++;
+      }
+
+      return -1;
+   }
+
+   static int PivotIndexOptimized(int[] nums)
+   {
+      int totalSum = 0;
+      foreach (int num in nums)
+      {
+         totalSum += num;
+      }
+
+      int leftSum = 0;
+      for (int i = 0; i < nums.Length; i++)
+      {
+         int rightSum = totalSum - leftSum - nums[i];
+         if (leftSum == rightSum) return i;
+         leftSum += nums[i];
       }
 
       return -1;
