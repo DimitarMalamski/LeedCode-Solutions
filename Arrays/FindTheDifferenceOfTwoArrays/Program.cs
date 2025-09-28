@@ -8,10 +8,10 @@ class Solution
    {
       int[] nums1 = { 1, 2, 3 };
       int[] nums2 = { 2, 4, 6 };
-      List<List<int>> output = FindDifferece(nums1, nums2);
+      List<List<int>> output = FindDiffereceOptimized(nums1, nums2);
 
       string result = "[" + string.Join(",", output.Select(inner => "[" + string.Join(",", inner) + "]")) + "]";
-        Console.WriteLine(result);
+      Console.WriteLine(result);
    }
    static List<List<int>> FindDifferece(int[] nums1, int[] nums2)
    {
@@ -38,5 +38,17 @@ class Solution
       }
 
       return new List<List<int>>() { list1, list2 };
+   }
+
+   static List<List<int>> FindDiffereceOptimized(int[] nums1, int[] nums2)
+   {
+      HashSet<int> set1 = new HashSet<int>(nums1);
+      HashSet<int> set2 = new HashSet<int>(nums2);
+
+      return new List<List<int>>
+      {
+         set1.Except(set2).ToList(),
+         set2.Except(set1).ToList()
+      };
    }
 }
