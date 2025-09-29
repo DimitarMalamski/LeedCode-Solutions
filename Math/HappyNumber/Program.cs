@@ -6,8 +6,22 @@ class Solution
    static void Main(string[] args)
    {
       int n = 2;
-      bool output = IsHappy(n);
+      bool output = IsHappySolutionTwo(n);
       Console.WriteLine(output);
+   }
+
+   static int GetNext(int n)
+   {
+      int sum = 0;
+
+      while (n > 0)
+      {
+         int digit = n % 10;
+         n /= 10;
+         sum += (digit * digit);
+      }
+
+      return sum;
    }
    static bool IsHappy(int n)
    {
@@ -18,25 +32,24 @@ class Solution
 
       HashSet<int> set = new HashSet<int>();
 
-      while (n != 1)
+      while (n != 1 && set.Add(n))
       {
-         int sum = 0;
-
-         while (n > 0)
-         {
-            int digit = n % 10;
-            n /= 10;
-            sum += (digit * digit);
-         }
-
-         n = sum;
-
-         if (!set.Add(sum))
-         {
-            return false;
-         }
+         n = GetNext(n);
       }
 
-      return true;
+      return n == 1;
+   }
+   static bool IsHappySolutionTwo(int n)
+   {
+      int slow = n;
+      int fast = GetNext(n);
+
+      while (fast != 1 && slow != fast)
+      {
+         slow = GetNext(slow);
+         fast = GetNext(GetNext(fast));
+      }
+
+      return fast == 1;
    }
 }
