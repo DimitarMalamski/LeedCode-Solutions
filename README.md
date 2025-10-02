@@ -37,10 +37,10 @@ Each solution file includes:
 | Linked Lists        | 3               |
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
-| Two Pointers        | 3               |
+| Two Pointers        | 4               |
 | Stack               | 2               |
 | Math                | 2               |
-| **Total**           | 36              |
+| **Total**           | 37              |
 ```
 
 *This will be updated as I progress with the problems*
