@@ -7,7 +7,7 @@ class Solution
    {
       string s = "abcd";
       string t = "abcde";
-      char output = FindTheDifference(s, t);
+      char output = FindTheDifferenceXOR(s, t);
       Console.WriteLine(output);
    }
    static char FindTheDifference(string s, string t)
@@ -25,5 +25,13 @@ class Solution
       }
 
       return ' ';
+   }
+
+   static char FindTheDifferenceXOR(string s, string t)
+   {
+      int result = 0;
+      foreach (char c in s) result ^= c;
+      foreach (char c in t) result ^= c;
+      return (char)result;      
    }
 }
