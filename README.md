@@ -33,7 +33,7 @@ Each solution file includes:
 | Category            | Problems Solved |
 | ------------------- | --------------- |
 | Arrays              | 18              |
-| Strings             | 10              |
+| Strings             | 11              |
 | Linked Lists        | 3               |
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
