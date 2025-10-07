@@ -38,4 +38,22 @@ class Solution
 
       return 1;
    }
+   static int ArraySignOptimized(int[] nums)
+   {
+      int counter = 0;
+
+      foreach (int num in nums)
+      {
+         if (num == 0)
+         {
+            return 0;
+         }
+         if (num < 0)
+         {
+            counter++;
+         }
+      }
+
+      return (counter % 2 == 0) ? 1 : -1;
+   }
 }
