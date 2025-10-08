@@ -5,7 +5,7 @@ class Solution
 {
    static void Main(string[] args)
    {
-      int[] arr = { 1,2,4 };
+      int[] arr = { 1, 2, 4 };
       bool output = CanMakeArithmeticProgression(arr);
       Console.WriteLine(output);
    }
@@ -20,5 +20,42 @@ class Solution
       }
 
       return true;
+   }
+   static bool CanMakeArithmeticProgressionOptimized(int[] arr)
+   {
+      int n = arr.Length;
+      if (n <= 2) return true;
+
+      int min = int.MaxValue, max = int.MinValue;
+      foreach (int num in arr)
+      {
+         min = Math.Min(min, num);
+         max = Math.Max(max, num);
+      }
+
+      if ((max - min) % (n - 1) != 0)
+      {
+         return false;
+      }
+
+      int diff = (max - min) / (n - 1);
+      if (diff == 0)
+      {
+         foreach (int num in arr)
+         {
+            if (num != min) return false;
+         }
+
+         return true;
+      }
+
+      HashSet<int> seen = new HashSet<int>();
+      foreach (int num in arr)
+      {
+         if ((num - min) % diff != 0) return false;
+         if (!seen.Add(num)) return false;
+      }
+
+      return seen.Count == n;
    }
 }
