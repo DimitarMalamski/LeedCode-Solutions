@@ -21,6 +21,23 @@ class Solution
       }
 
       return up || down;
-      
+   }
+   static bool IsMonotonicOptimized(int[] nums)
+   {
+      bool up = true;
+      bool down = true;
+
+      for (int i = 1; i < nums.Length; i++)
+      {
+         if (nums[i] > nums[i - 1]) down = false;
+         if (nums[i] < nums[i - 1]) up = false;
+
+         if (!down && !up)
+         {
+            return false;
+         }
+      }
+
+      return true;
    }
 }
