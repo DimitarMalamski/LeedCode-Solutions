@@ -33,14 +33,14 @@ Each solution file includes:
 | Category            | Problems Solved |
 | ------------------- | --------------- |
 | Arrays              | 22              |
-| Strings             | 12              |
+| Strings             | 13              |
 | Linked Lists        | 3               |
 | Trees / Graphs      | 0               |
 | Dynamic Programming | 0               |
 | Two Pointers        | 4               |
 | Stack               | 2               |
 | Math                | 3               |
-| **Total**           | 45              |
+| **Total**           | 46              |
 ```
 
 *This will be updated as I progress with the problems*
