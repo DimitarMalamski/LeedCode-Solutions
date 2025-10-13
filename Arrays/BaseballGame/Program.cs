@@ -6,8 +6,8 @@ class Solution
 {
    static void Main(string[] args)
    {
-      string[] operations = { "5","-2","4","C","D","9","+","+" };
-      int output = CalPoints(operations);
+      string[] operations = { "5", "-2", "4", "C", "D", "9", "+", "+" };
+      int output = CalPointsOptimized(operations);
       Console.WriteLine(output);
    }
    static int CalPoints(string[] operations)
@@ -50,6 +50,46 @@ class Solution
       }
 
       int sum = 0;
+      while (stack.Count > 0)
+      {
+         sum += stack.Pop();
+      }
+
+      return sum;
+   }
+   static int CalPointsOptimized(string[] operations)
+   {
+      Stack<int> stack = new Stack<int>();
+
+      foreach (var item in operations)
+      {
+         if (int.TryParse(operations[i], out int n))
+         {
+            stack.Push(n);
+         }
+         else
+         {
+            switch (item)
+            {
+               case "+":
+                  int last = stack.Pop();
+                  int secondLast = stack.Peek();
+                  int sum = last + secondLast;
+                  stack.Push(last);
+                  stack.Push(sum);
+                  break;
+               case "D":
+                  stack.Push(stack.Peek() * 2);
+                  break;
+               case "C":
+                  stack.Pop();
+                  break;
+            }
+         }
+      }
+
+      int sum = 0;
+
       while (stack.Count > 0)
       {
          sum += stack.Pop();
