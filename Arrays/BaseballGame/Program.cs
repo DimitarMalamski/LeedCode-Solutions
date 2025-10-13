@@ -61,11 +61,14 @@ class Solution
    {
       Stack<int> stack = new Stack<int>();
 
+      int sum = 0;
+
       foreach (var item in operations)
       {
-         if (int.TryParse(operations[i], out int n))
+         if (int.TryParse(item, out int n))
          {
             stack.Push(n);
+            sum += n;
          }
          else
          {
@@ -74,25 +77,22 @@ class Solution
                case "+":
                   int last = stack.Pop();
                   int secondLast = stack.Peek();
-                  int sum = last + secondLast;
+                  int sumTwo = last + secondLast;
                   stack.Push(last);
-                  stack.Push(sum);
+                  stack.Push(sumTwo);
+                  sum += sumTwo;
                   break;
                case "D":
-                  stack.Push(stack.Peek() * 2);
+                  int doubleVal = stack.Peek() * 2;
+                  stack.Push(doubleVal);
+                  sum += doubleVal;
                   break;
                case "C":
-                  stack.Pop();
+                  int number = stack.Pop();
+                  sum -= number;
                   break;
             }
          }
-      }
-
-      int sum = 0;
-
-      while (stack.Count > 0)
-      {
-         sum += stack.Pop();
       }
 
       return sum;
