@@ -11,11 +11,10 @@ class Solution
    }
    static bool JudgeCircle(string moves)
    {
-      char[] chars = moves.ToCharArray();
       int x = 0;
       int y = 0;
 
-      foreach (char move in chars)
+      foreach (char move in moves)
       {
          switch (move)
          {
