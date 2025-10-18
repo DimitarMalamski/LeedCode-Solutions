@@ -20,4 +20,9 @@ class Solution
 
       return count;
    }
+   static int CountOddsOptimized(int low, int high)
+   {
+      return (high + 1) / 2 - (low / 2);
+   }
+
 }
