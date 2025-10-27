@@ -11,7 +11,7 @@ class Solution
       root.right = new TreeNode(2);
       root.right.left = new TreeNode(3);
 
-      IList<int> output = sol.InorderTraversal(root);
+      IList<int> output = sol.InorderTraversalSolutionTwo(root);
       Console.WriteLine(string.Join(", ", output));
    }
 
@@ -21,6 +21,30 @@ class Solution
       Traverse(root, result);
       return result;
    }
+
+   public IList<int> InorderTraversalSolutionTwo(TreeNode root)
+   {
+      List<int> result = new List<int>();
+      Stack<TreeNode> stack = new Stack<TreeNode>();
+      TreeNode current = root;
+
+      while (current != null || stack.Count > 0)
+      {
+         while (current != null)
+         {
+            stack.Push(current);
+            current = current.left;
+         }
+
+         current = stack.Pop();
+         result.Add(current.val);
+
+         current = current.right;
+      }
+
+      return result;
+   }
+
    private void Traverse(TreeNode node, List<int> result)
    {
       if (node == null)
