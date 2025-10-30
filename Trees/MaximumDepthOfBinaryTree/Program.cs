@@ -15,7 +15,7 @@ class Solution
       root.right.left = new TreeNode(15);
       root.right.right = new TreeNode(7);
 
-      int output = sol.MaxDepth(root);
+      int output = sol.MaxDepthBFS(root);
       Console.WriteLine(output); 
    }
    public int MaxDepth(TreeNode root)
@@ -26,6 +26,30 @@ class Solution
       int rightDepth = MaxDepth(root.right);
 
       return Math.Max(leftDepth, rightDepth) + 1;
+   }
+
+   public int MaxDepthBFS(TreeNode root)
+   {
+      if (root == null) return 0;
+
+      Queue<TreeNode> queue = new Queue<TreeNode>();
+      queue.Enqueue(root);
+      int depth = 0;
+
+      while (queue.Count > 0)
+      {
+         int size = queue.Count;
+         for (int i = 0; i < size; i++)
+         {
+            TreeNode node = queue.Dequeue();
+            if (node.left != null) queue.Enqueue(node.left);
+            if (node.right != null) queue.Enqueue(node.right);
+         }
+
+         depth++;
+      }
+
+      return depth;  
    }
 
    public class TreeNode
