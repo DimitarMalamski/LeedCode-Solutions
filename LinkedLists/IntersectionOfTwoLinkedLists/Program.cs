@@ -11,7 +11,7 @@ class Solution
       ListNode headB = new ListNode(5, new ListNode(6, new ListNode(1, intersect)));
 
       Solution solution = new Solution();
-      ListNode intersectionNode = solution.GetIntersectionNode(headA, headB);
+      ListNode intersectionNode = solution.GetIntersectionNodeHashTable(headA, headB);
       Console.WriteLine(intersectionNode == null ? "null" : intersectionNode.val);
    }
 
@@ -29,6 +29,27 @@ class Solution
       }
 
       return a;
+   }
+
+   public ListNode GetIntersectionNodeHashTable(ListNode headA, ListNode headB)
+   {
+      if (headA == null || headB == null) return null;
+
+      HashSet<ListNode> seen = new HashSet<ListNode>();
+
+      while (headA != null)
+      {
+         seen.Add(headA);
+         headA = headA.next;
+      }
+
+      while (headB != null)
+      {
+         if (seen.Contains(headB)) return headB;
+         headB = headB.next;
+      }
+
+      return null;
    }
    public class ListNode
    {
