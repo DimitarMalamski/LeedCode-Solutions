@@ -9,9 +9,9 @@ class Solution
       head.next = new ListNode(2);
       head.next.next = new ListNode(0);
       head.next.next.next = new ListNode(-4);
-      head.next.next.next.next = new ListNode(10);
+      head.next.next.next.next = head.next;
 
-      bool result = HasCycle(head);
+      bool result = HasCycleHashTable(head);
       Console.WriteLine(result);
    }
 
@@ -36,6 +36,21 @@ class Solution
          fast = fast.next.next;
 
          if (head == fast) return true;
+      }
+
+      return false;
+   }
+
+   public static bool HasCycleHashTable(ListNode head)
+   {
+      HashSet<ListNode> seen = new HashSet<ListNode>();
+
+      while (head != null)
+      {
+         if (seen.Contains(head)) return true;
+
+         seen.Add(head);
+         head = head.next;
       }
 
       return false;
