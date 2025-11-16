@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       int num = 38;
-      int output = AddDigits(num);
+      int output = AddDigitsSolutionTwo(num);
       Console.WriteLine(output);
    }
    static int AddDigits(int num)
@@ -26,5 +26,11 @@ class Solution
       }
 
       return AddDigits(sum);
-   } 
+   }
+   static int AddDigitsSolutionTwo(int num)
+   {
+      if (num == 0) return 0;
+      int rem = num % 9;
+      return rem == 0 ? 9 : rem;
+   }
 }
