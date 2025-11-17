@@ -7,7 +7,7 @@ class Solution
    {
       int[] nums = { 2, 5, 1, 3, 4, 7 };
       int n = 3;
-      int[] output = Shuffle(nums, n);
+      int[] output = ShuffleOptimized(nums, n);
       Console.WriteLine(string.Join(", ", output));
    }
    static int[] Shuffle(int[] nums, int n)
@@ -25,6 +25,19 @@ class Solution
          {
             result[i] = nums[n + (i / 2)];
          }
+      }
+
+      return result;
+   }
+
+   static int[] ShuffleOptimized(int[] nums, int n)
+   {
+      int[] result = new int[2 * n];
+
+      for (int i = 0; i < n; i++)
+      {
+         result[2 * i] = nums[i];
+         result[2 * i + 1] = nums[n + i];
       }
 
       return result;
