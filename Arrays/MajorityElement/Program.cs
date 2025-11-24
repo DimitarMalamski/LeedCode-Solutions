@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
-      int output = MajorityElement(nums);
+      int output = MajorityElementOptimized(nums);
       Console.WriteLine(output);
    }
    public static int MajorityElement(int[] nums)
