@@ -39,8 +39,8 @@ Each solution file includes:
 | Dynamic Programming | 0               |
 | Two Pointers        | 4               |
 | Stack               | 2               |
-| Math                | 11              |
-| **Total**           | 88              |
+| Math                | 12              |
+| **Total**           | 89              |
 ```
 
 *This will be updated as I progress with the problems*
