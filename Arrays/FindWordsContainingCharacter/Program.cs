@@ -7,7 +7,7 @@ class Solution
    {
       string[] words = { "leet", "code" };
       char x = 'e';
-      List<int> output = FindWordsContaining(words, x);
+      List<int> output = FindWordsContainingOptimized(words, x);
       Console.WriteLine(string.Join(",", output));
    }
    static List<int> FindWordsContaining(string[] words, char x)
@@ -27,6 +27,18 @@ class Solution
                break;
             }
          }
+      }
+
+      return result;
+   }
+
+   static List<int> FindWordsContainingOptimized(string[] words, char x)
+   {
+      List<int> result = new List<int>();
+
+      for (int i = 0; i < words.Length; i++)
+      {
+         if (words[i].Contains(x)) result.Add(i);
       }
 
       return result;
