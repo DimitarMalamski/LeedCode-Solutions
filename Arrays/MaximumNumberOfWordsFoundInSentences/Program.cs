@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       string[] sentences = { "alice and bob love leetcode", "i think so too", "this is great thanks very much" };
-      int output = MostWordsFound(sentences);
+      int output = MostWordsFoundOptimized(sentences);
       Console.WriteLine(output);
    }
    static int MostWordsFound(string[] sentences)
@@ -23,6 +23,19 @@ class Solution
          }
 
          if (max <= count) max = count;
+      }
+
+      return max;
+   }
+
+   static int MostWordsFoundOptimized(string[] sentences)
+   {
+      int max = 0;
+
+      foreach (string sentence in sentences)
+      {
+         int words = sentence.Split(' ').Length;
+         if (words > max) max = words;
       }
 
       return max;
