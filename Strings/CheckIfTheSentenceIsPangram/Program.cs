@@ -6,7 +6,7 @@ class Solution
    static void Main(string[] args)
    {
       string sentence = "thequickbrownfoxjumpsoverthelazydog";
-      bool output = CheckIfPangram(sentence);
+      bool output = CheckIfPangramOptimized(sentence);
       Console.WriteLine(output);
    }
    static bool CheckIfPangram(string sentence)
@@ -21,5 +21,11 @@ class Solution
       }
 
       return true;
+   }
+
+   static bool CheckIfPangramOptimized(string sentence)
+   {
+      HashSet<char> letters = new HashSet<char>(sentence);
+      return letters.Count == 26;
    }
 }
